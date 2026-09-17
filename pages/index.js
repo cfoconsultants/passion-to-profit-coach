@@ -237,9 +237,9 @@ export default function Home() {
         <div className="logo no-print">
           <img src="/logo.svg" alt="Budget4Success" style={{ width: 170, height: 'auto' }} />
         </div>
-        <div className="eyebrow no-print">Budget4Success · Passion to Profit Coach</div>
-        <h1 className="no-print">Passion to Profit Coach</h1>
-        <p className="subtitle no-print">Turn your passion into a plan, guided by an AI coach.</p>
+        <div className="eyebrow no-print">Passion to Profit Coach</div>
+        <h1 className="no-print">Budget4Success</h1>
+        <p className="subtitle no-print">Turn what you love into a flexible income stream—with a personalized roadmap to guide you.</p>
 
         <div className="tracker no-print">
           {trackerLabels.map((label, i) => {
@@ -474,6 +474,17 @@ function ReportView({ r, onViewTranscript, onDownloadPdf, pdfBusy, pdfError }) {
         {gaugeRow('Business readiness', r.business_readiness)}
         {gaugeRow('Action readiness', r.action_readiness)}
       </div>
+
+      {r.improvement_tips && r.improvement_tips.length > 0 && (
+        <div className="report-section">
+          <h3>Ways to grow your score</h3>
+          {r.improvement_tips.map((t, i) => (
+            <p style={{ marginBottom: 8 }} key={i}>
+              <strong>{t.category}:</strong> {t.tip}
+            </p>
+          ))}
+        </div>
+      )}
 
       <div className="report-section">
         <h3>Your reflection</h3>
